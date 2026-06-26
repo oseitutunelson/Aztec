@@ -33,30 +33,30 @@ export default function Navbar() {
         }`}
       >
         <nav className="container-wide flex items-center justify-between">
-          <Link to="/" aria-label="Aztec home" className="shrink-0">
+          <Link to="/" aria-label="ArkNova home" className="shrink-0">
             <Logo className="text-white" />
           </Link>
 
-          <ul className="hidden items-center gap-1 lg:flex">
-            {NAV.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                      isActive ? 'text-accent' : 'text-white/75 hover:text-white'
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+          <div className="hidden items-center gap-8 lg:flex">
+            <ul className="flex items-center gap-8">
+              {NAV.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `text-sm font-medium transition-colors ${
+                        isActive ? 'text-accent' : 'text-white/80 hover:text-white'
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
 
-          <div className="hidden items-center gap-3 lg:flex">
-            <Button to="/contact" variant="accent" className="!py-2.5 !px-5">
-              Request Quote
+            <Button to="/contact" variant="accent" arrow={false} className="!rounded-lg !py-2.5 !px-6">
+              Contact us
             </Button>
           </div>
 
@@ -103,7 +103,7 @@ export default function Navbar() {
               </ul>
               <div className="mt-auto">
                 <Button to="/contact" variant="accent" className="w-full">
-                  Request Quote
+                  Contact us
                 </Button>
                 <div className="mt-6 flex items-center gap-3 text-white/60">
                   <Icon name="phone" size={18} />
@@ -117,3 +117,4 @@ export default function Navbar() {
     </header>
   )
 }
+

@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef } from 'react'
+import { Suspense, useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
   Environment,
@@ -38,7 +38,7 @@ function Building({ floors = 7, position = [0, 0, 0], color = '#1b1b1b', progres
             {/* accent floor line */}
             <mesh position={[0, 0.27, 0.76]}>
               <boxGeometry args={[1.5, 0.04, 0.02]} />
-              <meshStandardMaterial color="#ffd400" emissive="#ffd400" emissiveIntensity={0.4} />
+              <meshStandardMaterial color="#ff6b2c" emissive="#ff6b2c" emissiveIntensity={0.4} />
             </mesh>
           </group>
         )
@@ -62,7 +62,7 @@ function Crane({ position = [0, 0, 0] }) {
     if (hook.current) hook.current.position.y = -1.4 + Math.sin(t * 0.5) * 0.35
   })
 
-  const mast = '#ffd400'
+  const mast = '#ff6b2c'
   return (
     <group position={position}>
       {/* mast */}
@@ -165,31 +165,44 @@ function Particles({ count = 120 }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.04} color="#ffd400" transparent opacity={0.5} sizeAttenuation />
+      <pointsMaterial size={0.04} color="#ff6b2c" transparent opacity={0.5} sizeAttenuation />
     </points>
   )
 }
 
-/* ---------- Camera that drifts with scroll + idle motion ---------- */
-function Rig({ scrollRef }) {
+/* ---------- Camera that drifts with scroll + idle motion + mouse parallax ---------- */
+function Rig({ scrollRef, mouseRef }) {
   const cam = useRef()
   useFrame((state) => {
     const s = scrollRef.current || 0
+    const m = (mouseRef && mouseRef.current) || { x: 0, y: 0 }
     const t = state.clock.elapsedTime
-    const targetX = 7 + Math.sin(t * 0.1) * 0.4
-    const targetY = 4.2 - s * 1.4 + Math.sin(t * 0.15) * 0.2
+    // Mouse adds a gentle, bounded parallax offset on top of the idle drift.
+    const targetX = 7 + Math.sin(t * 0.1) * 0.4 + m.x * 1.1
+    const targetY = 4.2 - s * 1.4 + Math.sin(t * 0.15) * 0.2 - m.y * 0.7
     const targetZ = 8.5 - s * 1.2
     if (cam.current) {
-      cam.current.position.x += (targetX - cam.current.position.x) * 0.05
-      cam.current.position.y += (targetY - cam.current.position.y) * 0.05
+      // Slow lerp keeps motion elegant rather than twitchy.
+      cam.current.position.x += (targetX - cam.current.position.x) * 0.04
+      cam.current.position.y += (targetY - cam.current.position.y) * 0.04
       cam.current.position.z += (targetZ - cam.current.position.z) * 0.05
-      cam.current.lookAt(0, 2.4 - s, 0)
+      cam.current.lookAt(m.x * 0.6, 2.4 - s + m.y * 0.3, 0)
     }
   })
   return <PerspectiveCamera ref={cam} makeDefault fov={42} position={[7, 4.2, 8.5]} />
 }
 
-function SceneContents({ scrollRef }) {
+/* ---------- Signals the parent once the scene (incl. Environment) has mounted ---------- */
+function ReadySignal({ onReady }) {
+  useEffect(() => {
+    // Two frames after commit the first real shaded frame is on screen.
+    const id = requestAnimationFrame(() => requestAnimationFrame(() => onReady?.()))
+    return () => cancelAnimationFrame(id)
+  }, [onReady])
+  return null
+}
+
+function SceneContents({ scrollRef, mouseRef, onReady }) {
   // build progress animates subtly on its own + can be driven by scroll
   const progress = useRef(0.2)
   useFrame((_, delta) => {
@@ -199,14 +212,18 @@ function SceneContents({ scrollRef }) {
 
   return (
     <>
-      <Rig scrollRef={scrollRef} />
+      <Rig scrollRef={scrollRef} mouseRef={mouseRef} />
 
-      <ambientLight intensity={0.35} />
+      {/* Soft base fill so shadows stay rich but never crushed */}
+      <ambientLight intensity={0.4} />
+      <hemisphereLight args={['#bcd0ff', '#1a1407', 0.5]} />
+      {/* Key light — warm, casts the primary shadows */}
       <directionalLight
         position={[6, 10, 4]}
-        intensity={2.4}
+        intensity={2.6}
         castShadow
-        shadow-mapSize={[1024, 1024]}
+        shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.0004}
         shadow-camera-far={30}
         shadow-camera-left={-12}
         shadow-camera-right={12}
@@ -214,11 +231,22 @@ function SceneContents({ scrollRef }) {
         shadow-camera-bottom={-12}
         color="#fff5d6"
       />
-      <directionalLight position={[-8, 5, -6]} intensity={0.6} color="#9bb8ff" />
-      <pointLight position={[0, 3, 3]} intensity={20} color="#ffd400" distance={8} />
+      {/* Cool rim light separates the towers from the dark backdrop */}
+      <directionalLight position={[-8, 5, -6]} intensity={0.7} color="#9bb8ff" />
+      {/* Branded accent glow rising off the build site */}
+      <pointLight position={[0, 3, 3]} intensity={22} color="#ff6b2c" distance={9} />
+      <spotLight
+        position={[-4, 9, 5]}
+        angle={0.5}
+        penumbra={1}
+        intensity={1.2}
+        color="#ffffff"
+        distance={28}
+      />
 
       <Suspense fallback={null}>
         <Environment preset="city" />
+        <ReadySignal onReady={onReady} />
       </Suspense>
 
       {/* Main hero tower (scroll-driven assembly) */}
@@ -241,7 +269,7 @@ function SceneContents({ scrollRef }) {
         <planeGeometry args={[60, 60]} />
         <meshStandardMaterial color="#0a0a0a" metalness={0.2} roughness={0.9} />
       </mesh>
-      <gridHelper args={[60, 60, '#ffd400', '#1a1a1a']} position={[0, 0.01, 0]} />
+      <gridHelper args={[60, 60, '#ff6b2c', '#1a1a1a']} position={[0, 0.01, 0]} />
 
       <ContactShadows
         position={[0, 0.02, 0]}
@@ -308,8 +336,8 @@ function ProgressiveBuilding({ progressRef }) {
           <mesh position={[0, 0.27, 0.84]}>
             <boxGeometry args={[1.65, 0.05, 0.02]} />
             <meshStandardMaterial
-              color="#ffd400"
-              emissive="#ffd400"
+              color="#ff6b2c"
+              emissive="#ff6b2c"
               emissiveIntensity={0.6}
               transparent
             />
@@ -320,7 +348,7 @@ function ProgressiveBuilding({ progressRef }) {
   )
 }
 
-export default function ConstructionScene({ scrollRef }) {
+export default function ConstructionScene({ scrollRef, mouseRef, onReady }) {
   const fallbackRef = useRef(0)
   const ref = scrollRef || fallbackRef
   return (
@@ -333,7 +361,7 @@ export default function ConstructionScene({ scrollRef }) {
       <color attach="background" args={['#0a0a0a']} />
       <fog attach="fog" args={['#0a0a0a', 14, 30]} />
       <AdaptiveDpr pixelated />
-      <SceneContents scrollRef={ref} />
+      <SceneContents scrollRef={ref} mouseRef={mouseRef} onReady={onReady} />
     </Canvas>
   )
 }

@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 
-// The signature Aztec heading: small uppercase eyebrow + very large display title.
+// The signature ArkNova heading: small uppercase eyebrow + very large display title.
 export default function SectionHeading({
   eyebrow,
   title,
@@ -45,3 +45,4 @@ export default function SectionHeading({
     </div>
   )
 }
+

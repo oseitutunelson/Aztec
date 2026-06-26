@@ -1,4 +1,4 @@
-// Line-icon set tuned to the Aztec design language (1.5px strokes, square caps).
+// Line-icon set tuned to the ArkNova design language (1.5px strokes, square caps).
 const P = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round' }
 
 const PATHS = {
@@ -139,3 +139,4 @@ export default function Icon({ name, size = 24, className = '', ...rest }) {
     </svg>
   )
 }
+

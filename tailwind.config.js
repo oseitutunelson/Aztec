@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Aztec brand system
+        // ArkNova brand system
         ink: {
           DEFAULT: '#0E0E0E',
           900: '#0A0A0A',
@@ -18,9 +18,9 @@ export default {
           300: '#E4E1DA',
         },
         accent: {
-          DEFAULT: '#FFD400',
-          400: '#FFDE33',
-          600: '#E6BE00',
+          DEFAULT: '#FF6B2C',
+          400: '#FF8551',
+          600: '#E0561F',
         },
         muted: '#6B6B6B',
       },
@@ -52,3 +52,4 @@ export default {
   },
   plugins: [],
 }
+

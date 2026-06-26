@@ -34,7 +34,7 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact Aztec — Request a Quote" description="Get in touch with Aztec for a free consultation or project estimate. Offices, phone, email and WhatsApp." />
+      <Seo title="Contact ArkNova — Request a Quote" description="Get in touch with ArkNova for a free consultation or project estimate. Offices, phone, email and WhatsApp." />
       <PageHero
         eyebrow="— Contact"
         title="Let's Build Together"
@@ -142,7 +142,7 @@ export default function Contact() {
         <div className="container-wide">
           <div className="overflow-hidden rounded-3xl border border-ink/10">
             <iframe
-              title="Aztec office location"
+              title="ArkNova office location"
               src="https://www.openstreetmap.org/export/embed.html?bbox=-122.52%2C37.70%2C-122.35%2C37.83&layer=mapnik"
               className="h-[420px] w-full grayscale"
               loading="lazy"
@@ -165,3 +165,4 @@ function Field({ label, required, type = 'text', ...rest }) {
     </div>
   )
 }
+

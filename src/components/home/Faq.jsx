@@ -14,7 +14,7 @@ export default function Faq() {
         <div>
           <SectionHeading eyebrow="— FAQ" title={<>Questions,<br /> answered</>} />
           <p className="mt-6 max-w-sm text-muted">
-            Everything you need to know about working with Aztec. Still curious?
+            Everything you need to know about working with ArkNova. Still curious?
             Our team is one message away.
           </p>
           <div className="mt-8">
@@ -58,3 +58,4 @@ export default function Faq() {
     </section>
   )
 }
+

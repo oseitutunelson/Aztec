@@ -12,18 +12,21 @@ function hasWebGL() {
   }
 }
 
-export default function HeroCanvas({ scrollRef }) {
+export default function HeroCanvas({ scrollRef, mouseRef, onReady }) {
   const [enabled, setEnabled] = useState(false)
   const [mount, setMount] = useState(false)
   const holder = useRef(null)
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    setEnabled(hasWebGL() && !reduced)
+    const ok = hasWebGL() && !reduced
+    setEnabled(ok)
     // Defer mounting heavy canvas slightly so first paint is fast.
     const id = requestAnimationFrame(() => setMount(true))
+    // No 3D scene means nothing to wait for — release the loader immediately.
+    if (!ok) onReady?.()
     return () => cancelAnimationFrame(id)
-  }, [])
+  }, [onReady])
 
   if (!enabled) {
     // Static blueprint fallback for no-WebGL / reduced-motion users.
@@ -40,7 +43,7 @@ export default function HeroCanvas({ scrollRef }) {
         <Suspense
           fallback={<div className="absolute inset-0 blueprint-grid bg-ink" />}
         >
-          <ConstructionScene scrollRef={scrollRef} />
+          <ConstructionScene scrollRef={scrollRef} mouseRef={mouseRef} onReady={onReady} />
         </Suspense>
       )}
     </div>

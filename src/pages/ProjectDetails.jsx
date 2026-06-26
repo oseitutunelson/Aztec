@@ -46,7 +46,7 @@ export default function ProjectDetails() {
 
   return (
     <>
-      <Seo title={`${project.name} — Aztec Project`} description={project.blurb} />
+      <Seo title={`${project.name} — ArkNova Project`} description={project.blurb} />
 
       {/* Hero */}
       <section className="relative flex min-h-[80vh] items-end overflow-hidden bg-ink pb-16 pt-40 text-white">
@@ -91,7 +91,7 @@ export default function ProjectDetails() {
             <Reveal delay={0.1}>
               <p className="mt-6 text-lg leading-relaxed text-muted">
                 {project.name} is a {project.category.toLowerCase()} project in {project.location},
-                delivered over {project.duration}. Aztec led the engagement end-to-end — from
+                delivered over {project.duration}. ArkNova led the engagement end-to-end — from
                 design and engineering through construction and finishing — to a turnkey handover.
               </p>
             </Reveal>
@@ -214,3 +214,4 @@ export default function ProjectDetails() {
     </>
   )
 }
+

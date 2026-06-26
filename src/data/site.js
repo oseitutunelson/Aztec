@@ -1,12 +1,12 @@
-// Central content/config for the Aztec construction site.
+// Central content/config for the ArkNova construction site.
 
 export const COMPANY = {
-  name: 'Aztec',
-  full: 'Aztec Construction',
+  name: 'ArkNova',
+  full: 'ArkNova Construction',
   tagline: 'Building Excellence From Design To Completion',
   phone: '+1 (415) 555-0142',
   whatsapp: '14155550142',
-  email: 'hello@aztecconstruction.com',
+  email: 'hello@arknovaconstruction.com',
   address: '8800 Preston Rd, Inglewood, Maine 98380',
   hours: 'Mon – Fri · 8:00 AM – 6:00 PM',
   socials: [
@@ -337,7 +337,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      'From design to delivery, Aztec managed every detail with precision. The build came in on time and the quality is simply exceptional. We could not be happier.',
+      'From design to delivery, ArkNova managed every detail with precision. The build came in on time and the quality is simply exceptional. We could not be happier.',
     name: 'Marcus Reyes',
     role: 'Property Investor',
     rating: 5,
@@ -345,7 +345,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      'Their transparency around cost and schedule gave us complete confidence. Aztec feels like a true engineering partner, not just a contractor.',
+      'Their transparency around cost and schedule gave us complete confidence. ArkNova feels like a true engineering partner, not just a contractor.',
     name: 'Elena Whitfield',
     role: 'Operations Director',
     rating: 5,
@@ -359,12 +359,12 @@ export const PARTNERS = [
 
 export const FAQS = [
   {
-    q: 'What types of projects does Aztec take on?',
+    q: 'What types of projects does ArkNova take on?',
     a: 'We deliver residential, commercial, hospitality, mixed-use and infrastructure projects — from private luxury homes to large multi-storey developments and turnkey commercial buildings.',
   },
   {
     q: 'Do you handle both design and construction?',
-    a: 'Yes. Aztec is an end-to-end partner. We can take a project from concept and architectural design through engineering, cost estimation, construction, finishing and final handover.',
+    a: 'Yes. ArkNova is an end-to-end partner. We can take a project from concept and architectural design through engineering, cost estimation, construction, finishing and final handover.',
   },
   {
     q: 'How do you keep projects on budget?',
@@ -401,7 +401,7 @@ export const TEAM = [
 ]
 
 export const MILESTONES = [
-  { year: '1998', title: 'Founded', text: 'Aztec opens its doors with a small team and a big standard for craft.' },
+  { year: '1998', title: 'Founded', text: 'ArkNova opens its doors with a small team and a big standard for craft.' },
   { year: '2005', title: 'First Commercial Tower', text: 'Completed our first major commercial high-rise, ahead of schedule.' },
   { year: '2012', title: 'Engineering Division', text: 'Launched in-house structural and MEP engineering capability.' },
   { year: '2018', title: 'Design Studio', text: 'Opened a full architectural design and 3D visualization studio.' },
@@ -417,3 +417,4 @@ export const CERTS = [
   'Certified Structural Engineers',
   'OSHA Compliant Operations',
 ]
+

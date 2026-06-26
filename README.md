@@ -1,7 +1,7 @@
-# Aztec — Premium Construction Company Website
+# ArkNova — Premium Construction Company Website
 
 A world-class, conversion-focused construction company website built to the uploaded
-Aztec design system (ink black · bone white · signature yellow `#FFD400`), enhanced with
+ArkNova design system (ink black · bone white · signature yellow `#FFD400`), enhanced with
 advanced animations, an interactive Three.js construction scene, and scroll-driven
 building assembly.
 
@@ -39,7 +39,7 @@ Tokens live in `tailwind.config.js`:
 
 - `ink` — near-black surfaces (`#0E0E0E`)
 - `bone` — warm off-white (`#F6F5F2`)
-- `accent` — Aztec signature yellow (`#FFD400`)
+- `accent` — ArkNova signature yellow (`#FFD400`)
 - Display type: **Archivo** (tight, extra-bold). Body: **Inter**.
 
 ## Performance & Accessibility
@@ -63,3 +63,4 @@ src/
 ```
 
 Update copy, projects and services in **`src/data/site.js`** — pages render from it.
+

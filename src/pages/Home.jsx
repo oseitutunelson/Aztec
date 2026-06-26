@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Aztec — Building Excellence From Design To Completion"
-        description="Aztec delivers world-class architectural design, construction, engineering, renovation, and project management solutions."
+        title="ArkNova — Building Excellence From Design To Completion"
+        description="ArkNova delivers world-class architectural design, construction, engineering, renovation, and project management solutions."
       />
       <Hero />
       <TrustBar />
@@ -34,3 +34,4 @@ export default function Home() {
     </>
   )
 }
+

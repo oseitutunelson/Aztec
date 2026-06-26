@@ -16,7 +16,7 @@ export default function Projects() {
 
   return (
     <>
-      <Seo title="Projects — Aztec Construction Portfolio" description="Explore Aztec's portfolio of residential, commercial, hospitality, mixed-use and infrastructure projects." />
+      <Seo title="Projects — ArkNova Construction Portfolio" description="Explore ArkNova's portfolio of residential, commercial, hospitality, mixed-use and infrastructure projects." />
       <PageHero
         eyebrow="— Portfolio"
         title="Projects That Define Skylines"
@@ -110,3 +110,4 @@ export default function Projects() {
     </>
   )
 }
+

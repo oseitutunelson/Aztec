@@ -44,7 +44,7 @@ export default function FinalCta() {
         </Reveal>
         <Reveal delay={0.12}>
           <p className="mx-auto mt-6 max-w-xl text-white/65">
-            From the first sketch to the final handover, Aztec delivers world-class
+            From the first sketch to the final handover, ArkNova delivers world-class
             construction with engineering precision. Let&apos;s start building.
           </p>
         </Reveal>
@@ -58,3 +58,4 @@ export default function FinalCta() {
     </section>
   )
 }
+

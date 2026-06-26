@@ -4,7 +4,7 @@ import Button from '../components/Button'
 export default function NotFound() {
   return (
     <>
-      <Seo title="Page Not Found — Aztec" />
+      <Seo title="Page Not Found — ArkNova" />
       <section className="grid min-h-screen place-items-center bg-ink text-center text-white">
         <div className="container-wide">
           <p className="eyebrow justify-center text-accent">— Error 404</p>
@@ -21,3 +21,4 @@ export default function NotFound() {
     </>
   )
 }
+

@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
         <SectionHeading
           eyebrow="— Why Choose Us"
           title="Built on trust, delivered with precision"
-          intro="Six reasons clients choose Aztec to design and build their most important projects."
+          intro="Six reasons clients choose ArkNova to design and build their most important projects."
           align="center"
         />
 
@@ -39,3 +39,4 @@ export default function WhyChooseUs() {
     </section>
   )
 }
+

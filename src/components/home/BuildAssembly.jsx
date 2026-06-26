@@ -119,10 +119,10 @@ export default function BuildAssembly() {
           <div className="order-1 flex items-end justify-center lg:order-2">
             <svg viewBox="0 0 320 360" className="h-[44vh] w-auto max-h-[460px] lg:h-[70vh]">
               {/* glow */}
-              <ellipse className="ba-glow" cx="160" cy="330" rx="150" ry="22" fill="#ffd400" opacity="0.18" />
+              <ellipse className="ba-glow" cx="160" cy="330" rx="150" ry="22" fill="#ff6b2c" opacity="0.18" />
 
               {/* foundation */}
-              <rect className="ba-foundation" x="60" y="312" width="200" height="22" fill="#ffd400" rx="2" />
+              <rect className="ba-foundation" x="60" y="312" width="200" height="22" fill="#ff6b2c" rx="2" />
 
               {/* structural frame (lines) */}
               <g className="ba-frame" stroke="#5a5a5a" strokeWidth="2" fill="none">
@@ -139,12 +139,12 @@ export default function BuildAssembly() {
               <rect className="ba-wall" x="100" y="98" width="120" height="34" fill="#202024" />
 
               {/* floor lines (accent) */}
-              <rect className="ba-floor" x="82" y="250" width="156" height="3" fill="#ffd400" />
-              <rect className="ba-floor" x="82" y="190" width="156" height="3" fill="#ffd400" />
-              <rect className="ba-floor" x="82" y="130" width="156" height="3" fill="#ffd400" />
+              <rect className="ba-floor" x="82" y="250" width="156" height="3" fill="#ff6b2c" />
+              <rect className="ba-floor" x="82" y="190" width="156" height="3" fill="#ff6b2c" />
+              <rect className="ba-floor" x="82" y="130" width="156" height="3" fill="#ff6b2c" />
 
               {/* windows */}
-              <g className="ba-window" fill="#ffd400" opacity="0.85">
+              <g className="ba-window" fill="#ff6b2c" opacity="0.85">
                 <rect x="94" y="262" width="14" height="18" />
                 <rect x="118" y="262" width="14" height="18" />
                 <rect x="178" y="262" width="14" height="18" />
@@ -160,8 +160,8 @@ export default function BuildAssembly() {
               {/* roof / crown */}
               <g className="ba-roof">
                 <rect x="96" y="86" width="128" height="14" fill="#0c0c0c" />
-                <rect x="150" y="58" width="6" height="30" fill="#ffd400" />
-                <circle cx="153" cy="56" r="4" fill="#ffd400" />
+                <rect x="150" y="58" width="6" height="30" fill="#ff6b2c" />
+                <circle cx="153" cy="56" r="4" fill="#ff6b2c" />
               </g>
             </svg>
           </div>
@@ -169,7 +169,7 @@ export default function BuildAssembly() {
       </div>
 
       <style>{`
-        .ba-step.is-active { border-color: #ffd400; background: rgba(255,212,0,0.06); }
+        .ba-step.is-active { border-color: #ff6b2c; background: rgba(255,107,44,0.06); }
         .ba-step.is-active .ba-step-text { color: rgba(255,255,255,0.8); }
       `}</style>
     </section>

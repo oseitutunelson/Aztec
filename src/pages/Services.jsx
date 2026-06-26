@@ -25,7 +25,7 @@ const BENEFITS = ['Fixed, transparent pricing', 'Certified expert team', 'On-tim
 export default function Services() {
   return (
     <>
-      <Seo title="Services — Aztec Construction & Engineering" description="Architecture, construction, renovation, engineering, project management, cost estimation, finishing and more." />
+      <Seo title="Services — ArkNova Construction & Engineering" description="Architecture, construction, renovation, engineering, project management, cost estimation, finishing and more." />
       <PageHero
         eyebrow="— Our Services"
         title="Every Discipline Under One Roof"
@@ -110,3 +110,4 @@ export default function Services() {
     </>
   )
 }
+

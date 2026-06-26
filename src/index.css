@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --ink: #0e0e0e;
-    --accent: #ffd400;
+    --accent: #ff6b2c;
   }
   * {
     -webkit-font-smoothing: antialiased;
@@ -18,7 +18,7 @@
     @apply bg-bone text-ink font-sans antialiased overflow-x-hidden;
   }
   ::selection {
-    background: #ffd400;
+    background: #ff6b2c;
     color: #0e0e0e;
   }
   /* Custom scrollbar */
@@ -33,7 +33,7 @@
     border-radius: 99px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #ffd400;
+    background: #ff6b2c;
   }
 }
 
@@ -79,10 +79,18 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
 
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .blueprint-grid {
     background-image:
-      linear-gradient(rgba(255, 212, 0, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 212, 0, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(255, 107, 44, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 107, 44, 0.06) 1px, transparent 1px);
     background-size: 44px 44px;
   }
 }

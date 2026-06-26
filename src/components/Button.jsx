@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Icon from './Icon'
 
-// Variants tuned to the Aztec system: ink, accent (yellow), outline, ghost.
+// Variants tuned to the ArkNova system: ink, accent (yellow), outline, ghost.
 const VARIANTS = {
   accent:
     'bg-accent text-ink hover:bg-accent-400 border border-accent hover:border-accent-400',
@@ -41,3 +41,4 @@ export default function Button({
   if (href) return <a href={href} className={cls} {...rest}>{inner}</a>
   return <button className={cls} {...rest}>{inner}</button>
 }
+

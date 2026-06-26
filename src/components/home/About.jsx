@@ -20,7 +20,7 @@ export default function About() {
             <div className="overflow-hidden rounded-3xl">
               <motion.img
                 src={unsplash('photo-1503387762-592deb58ef4e', { w: 1000 })}
-                alt="Aztec construction site"
+                alt="ArkNova construction site"
                 loading="lazy"
                 className="h-[460px] w-full object-cover sm:h-[560px]"
                 initial={{ scale: 1.15 }}
@@ -50,7 +50,7 @@ export default function About() {
           />
           <Reveal delay={0.1}>
             <p className="mt-6 text-muted">
-              Aztec is a premium construction and engineering firm built on a simple
+              ArkNova is a premium construction and engineering firm built on a simple
               belief: great buildings come from great discipline. For nearly three
               decades we have partnered with homeowners, developers and institutions
               to deliver projects that are as sound as they are striking.
@@ -80,7 +80,7 @@ export default function About() {
 
           <Reveal delay={0.35}>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button to="/about" variant="ink">More About Aztec</Button>
+              <Button to="/about" variant="ink">More About ArkNova</Button>
               <div className="flex items-center gap-3 text-sm text-muted">
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-ink/5 text-ink">
                   <Icon name="check" size={18} />
@@ -94,3 +94,4 @@ export default function About() {
     </section>
   )
 }
+

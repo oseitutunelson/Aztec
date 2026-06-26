@@ -44,7 +44,7 @@ export default function About() {
 
   return (
     <>
-      <Seo title="About Aztec — Premium Construction & Engineering" description="Our story, mission, leadership team, certifications and milestones." />
+      <Seo title="About ArkNova — Premium Construction & Engineering" description="Our story, mission, leadership team, certifications and milestones." />
       <PageHero
         eyebrow="— About Us"
         title="We Build What Others Imagine"
@@ -57,7 +57,7 @@ export default function About() {
         <div className="container-wide grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal direction="right">
             <div className="relative">
-              <img src={unsplash('photo-1504307651254-35680f356dfd', { w: 1000 })} alt="Aztec team on site" loading="lazy" className="h-[520px] w-full rounded-3xl object-cover" />
+              <img src={unsplash('photo-1504307651254-35680f356dfd', { w: 1000 })} alt="ArkNova team on site" loading="lazy" className="h-[520px] w-full rounded-3xl object-cover" />
               <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-accent p-6 sm:block">
                 <p className="font-display text-4xl font-extrabold text-ink"><Counter value={480} suffix="+" /></p>
                 <p className="text-sm text-ink/70">Projects delivered</p>
@@ -68,7 +68,7 @@ export default function About() {
             <SectionHeading eyebrow="— Our Story" title="From a small crew to a trusted name" size="md" />
             <Reveal delay={0.1}>
               <p className="mt-6 text-muted">
-                Aztec began in 1998 with a single crew and an uncompromising standard for
+                ArkNova began in 1998 with a single crew and an uncompromising standard for
                 quality. What started as a residential builder has grown into a full-service
                 construction and engineering firm trusted by homeowners, developers and
                 institutions alike.
@@ -206,3 +206,4 @@ export default function About() {
     </>
   )
 }
+
