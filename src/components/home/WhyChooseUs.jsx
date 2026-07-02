@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
 import SectionHeading from '../SectionHeading'
 import Reveal from '../Reveal'
 import Icon from '../Icon'
 import { WHY_US } from '../../data/site'
 
+// Simple portrait layout: concise points with small icons beside each.
 export default function WhyChooseUs() {
   return (
     <section className="bg-white py-24 sm:py-32">
@@ -11,27 +11,22 @@ export default function WhyChooseUs() {
         <SectionHeading
           eyebrow="— Why Choose Us"
           title="Built on trust, delivered with precision"
-          intro="Six reasons clients choose ArkNova to design and build their most important projects."
+          intro="The qualities that make ArkNova the partner clients rely on for their most important builds."
           align="center"
         />
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-4xl gap-x-10 gap-y-2 sm:grid-cols-2">
           {WHY_US.map((w, i) => (
-            <Reveal key={w.title} delay={(i % 3) * 0.08}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                className="group relative h-full overflow-hidden rounded-3xl border border-ink/10 p-8 transition-colors hover:border-ink"
-              >
-                {/* number watermark */}
-                <span className="absolute -right-2 -top-4 font-display text-8xl font-extrabold text-ink/[0.04]">
-                  {String(i + 1).padStart(2, '0')}
+            <Reveal key={w.title} delay={(i % 2) * 0.06}>
+              <div className="group flex items-start gap-4 border-b border-ink/10 py-5">
+                <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent/15 text-ink transition-colors group-hover:bg-accent">
+                  <Icon name={w.icon} size={18} />
                 </span>
-                <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-ink text-accent transition-colors group-hover:bg-accent group-hover:text-ink">
-                  <Icon name={w.icon} size={26} />
-                </span>
-                <h3 className="relative mt-6 font-display text-xl font-bold">{w.title}</h3>
-                <p className="relative mt-3 text-sm leading-relaxed text-muted">{w.text}</p>
-              </motion.div>
+                <div>
+                  <h3 className="font-display text-base font-bold">{w.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{w.text}</p>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -39,4 +34,3 @@ export default function WhyChooseUs() {
     </section>
   )
 }
-

@@ -40,9 +40,20 @@ export default function Footer() {
         <div className="col-span-2 lg:col-span-2">
           <Logo className="text-white" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
-            World-class architectural design, construction and engineering — from
-            first sketch to final handover.
+            Premium Ghanaian architectural design, construction and engineering —
+            from first sketch to final handover.
           </p>
+          <div className="mt-6 flex flex-col gap-2">
+            <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2.5 text-sm font-semibold text-white/80 transition-colors hover:text-accent">
+              <Icon name="phone" size={15} /> {COMPANY.phone}
+            </a>
+            <a href={`tel:${COMPANY.phone2}`} className="flex items-center gap-2.5 text-sm font-semibold text-white/80 transition-colors hover:text-accent">
+              <Icon name="phone" size={15} /> {COMPANY.phone2}
+            </a>
+            <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2.5 text-sm text-white/55 transition-colors hover:text-accent">
+              <Icon name="mail" size={15} /> {COMPANY.email}
+            </a>
+          </div>
           <div className="mt-6 flex gap-2">
             {COMPANY.socials.map((s) => (
               <a

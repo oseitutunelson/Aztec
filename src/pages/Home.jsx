@@ -3,7 +3,6 @@ import Hero from '../components/home/Hero'
 import TrustBar from '../components/home/TrustBar'
 import About from '../components/home/About'
 import Services from '../components/home/Services'
-import BuildAssembly from '../components/home/BuildAssembly'
 import FeaturedProjects from '../components/home/FeaturedProjects'
 import Process from '../components/home/Process'
 import WhyChooseUs from '../components/home/WhyChooseUs'
@@ -23,7 +22,6 @@ export default function Home() {
       <TrustBar />
       <About />
       <Services />
-      <BuildAssembly />
       <FeaturedProjects />
       <Process />
       <WhyChooseUs />

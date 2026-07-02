@@ -8,7 +8,7 @@ import Counter from '../components/Counter'
 import Icon from '../components/Icon'
 import Button from '../components/Button'
 import { unsplash } from '../lib/img'
-import { VALUES, TEAM, MILESTONES, CERTS, STATS } from '../data/site'
+import { VALUES, MILESTONES, COMMITMENTS, PROCESS, STATS } from '../data/site'
 
 export default function About() {
   const timelineRef = useRef(null)
@@ -44,34 +44,34 @@ export default function About() {
 
   return (
     <>
-      <Seo title="About ArkNova — Premium Construction & Engineering" description="Our story, mission, leadership team, certifications and milestones." />
+      <Seo title="About ArkNova — Premium Ghanaian Construction & Engineering" description="Our story, mission, vision, core values, construction process and our commitment to quality, safety and sustainability." />
       <PageHero
         eyebrow="— About Us"
         title="We Build What Others Imagine"
-        intro="Nearly three decades of engineering precision, craft and trust — delivered across five sectors."
+        intro="Over a decade of engineering precision, craft and trust — delivered across Ghana."
         image="photo-1541888946425-d81bb19240f5"
       />
 
-      {/* Story split */}
+      {/* Story / Company History split */}
       <section className="bg-white py-24 sm:py-32">
         <div className="container-wide grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal direction="right">
             <div className="relative">
               <img src={unsplash('photo-1504307651254-35680f356dfd', { w: 1000 })} alt="ArkNova team on site" loading="lazy" className="h-[520px] w-full rounded-3xl object-cover" />
               <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-accent p-6 sm:block">
-                <p className="font-display text-4xl font-extrabold text-ink"><Counter value={480} suffix="+" /></p>
+                <p className="font-display text-4xl font-extrabold text-ink"><Counter value={350} suffix="+" /></p>
                 <p className="text-sm text-ink/70">Projects delivered</p>
               </div>
             </div>
           </Reveal>
           <div>
-            <SectionHeading eyebrow="— Our Story" title="From a small crew to a trusted name" size="md" />
+            <SectionHeading eyebrow="— Company History" title="From a small crew to a trusted name" size="md" />
             <Reveal delay={0.1}>
               <p className="mt-6 text-muted">
-                ArkNova began in 1998 with a single crew and an uncompromising standard for
-                quality. What started as a residential builder has grown into a full-service
-                construction and engineering firm trusted by homeowners, developers and
-                institutions alike.
+                ArkNova began in Accra in 2008 with a single crew and an uncompromising
+                standard for quality. What started as a residential builder has grown into
+                a full-service construction and engineering firm trusted by homeowners,
+                developers, schools, churches and businesses across Ghana.
               </p>
             </Reveal>
             <Reveal delay={0.16}>
@@ -100,7 +100,7 @@ export default function About() {
         <div className="container-wide grid gap-8 md:grid-cols-2">
           {[
             { t: 'Our Mission', d: 'To deliver buildings of enduring quality through engineering precision, transparency and craft — every project, every time.', icon: 'compass' },
-            { t: 'Our Vision', d: 'To be the most trusted name in premium construction, where design ambition meets flawless execution.', icon: 'bolt' },
+            { t: 'Our Vision', d: 'To be the most trusted name in Ghanaian construction, where design ambition meets flawless execution.', icon: 'bolt' },
           ].map((m, i) => (
             <Reveal key={m.t} delay={i * 0.1}>
               <div className="h-full rounded-3xl border border-white/10 p-10">
@@ -113,7 +113,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Core Values */}
       <section className="bg-bone py-24 sm:py-32">
         <div className="container-wide">
           <SectionHeading eyebrow="— Core Values" title="What we stand on" align="center" />
@@ -131,8 +131,31 @@ export default function About() {
         </div>
       </section>
 
+      {/* Construction Process */}
+      <section className="bg-white py-24 sm:py-32">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="— Our Process"
+            title="A clear path on every project"
+            intro="A disciplined, transparent process that takes your project from first idea to a turnkey handover."
+            align="center"
+          />
+          <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+            {PROCESS.map((p) => (
+              <Reveal key={p.n}>
+                <div className="h-full bg-white p-7 transition-colors hover:bg-bone">
+                  <span className="font-display text-3xl font-extrabold text-accent">{p.n}</span>
+                  <h3 className="mt-3 font-display text-lg font-bold">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted">{p.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Milestones timeline */}
-      <section ref={timelineRef} className="bg-white py-24 sm:py-32">
+      <section ref={timelineRef} className="bg-bone py-24 sm:py-32">
         <div className="container-wide">
           <SectionHeading eyebrow="— Our Journey" title="Milestones that shaped us" />
           <div className="relative mt-16 pl-8 sm:pl-0">
@@ -141,13 +164,13 @@ export default function About() {
               {MILESTONES.map((m, i) => (
                 <div key={m.year} className={`ms-item relative flex flex-col sm:flex-row ${i % 2 ? 'sm:flex-row-reverse' : ''}`}>
                   <div className="sm:w-1/2 sm:px-12">
-                    <div className={`rounded-3xl border border-ink/10 p-7 ${i % 2 ? 'sm:text-left' : 'sm:text-right'}`}>
+                    <div className={`rounded-3xl border border-ink/10 bg-white p-7 ${i % 2 ? 'sm:text-left' : 'sm:text-right'}`}>
                       <span className="font-display text-4xl font-extrabold text-accent">{m.year}</span>
                       <h3 className="mt-2 font-display text-xl font-bold">{m.title}</h3>
                       <p className="mt-2 text-sm text-muted">{m.text}</p>
                     </div>
                   </div>
-                  <span className="absolute left-8 top-7 grid h-5 w-5 -translate-x-1/2 place-items-center rounded-full bg-accent ring-4 ring-white sm:left-1/2">
+                  <span className="absolute left-8 top-7 grid h-5 w-5 -translate-x-1/2 place-items-center rounded-full bg-accent ring-4 ring-bone sm:left-1/2">
                     <span className="h-2 w-2 rounded-full bg-ink" />
                   </span>
                 </div>
@@ -157,19 +180,25 @@ export default function About() {
         </div>
       </section>
 
-      {/* Leadership team */}
+      {/* Commitments: Quality, Safety, Sustainability, Client-Centered */}
       <section className="bg-ink py-24 text-white sm:py-32">
         <div className="container-wide">
-          <SectionHeading eyebrow="— Leadership" title="The people behind the build" light />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {TEAM.map((p, i) => (
-              <Reveal key={p.name} delay={(i % 4) * 0.08}>
-                <div className="group">
-                  <div className="overflow-hidden rounded-3xl">
-                    <img src={unsplash(p.photo, { w: 600 })} alt={p.name} loading="lazy" className="aspect-[4/5] w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0" />
+          <SectionHeading
+            eyebrow="— Our Commitment"
+            title="Professionalism you can build on"
+            intro="The standards that guide how we work — on every site, for every client."
+            light
+            align="center"
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2">
+            {COMMITMENTS.map((c, i) => (
+              <Reveal key={c.title} delay={(i % 2) * 0.08}>
+                <div className="flex h-full gap-5 rounded-3xl border border-white/10 p-8 transition-colors hover:border-accent">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-accent text-ink"><Icon name={c.icon} size={24} /></span>
+                  <div>
+                    <h3 className="font-display text-xl font-bold">{c.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/60">{c.text}</p>
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-bold">{p.name}</h3>
-                  <p className="text-sm text-accent">{p.role}</p>
                 </div>
               </Reveal>
             ))}
@@ -177,24 +206,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="bg-bone py-24 sm:py-32">
-        <div className="container-wide grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <SectionHeading eyebrow="— Certifications & Awards" title="Built to standard" size="md" />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {CERTS.map((c, i) => (
-              <Reveal key={c} delay={(i % 2) * 0.06}>
-                <div className="flex items-center gap-4 rounded-2xl border border-ink/10 bg-white p-5">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent text-ink"><Icon name="shield" size={20} /></span>
-                  <span className="font-medium">{c}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white pb-28">
+      <section className="bg-white py-24 sm:py-28">
         <div className="container-wide rounded-3xl bg-ink px-8 py-16 text-center text-white sm:px-16">
           <h2 className="display mx-auto max-w-2xl text-4xl sm:text-5xl">Work with a team that owns the outcome</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -206,4 +218,3 @@ export default function About() {
     </>
   )
 }
-

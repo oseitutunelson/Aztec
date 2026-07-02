@@ -6,8 +6,8 @@ import Icon from '../Icon'
 import { unsplash } from '../../lib/img'
 
 const PILLARS = [
-  { icon: 'compass', title: 'Our Mission', text: 'To deliver buildings of enduring quality through engineering precision, transparency and craft.' },
-  { icon: 'bolt', title: 'Our Vision', text: 'To be the most trusted name in premium construction — where design ambition meets flawless execution.' },
+  { icon: 'shield', title: 'Quality & Safety', text: 'Premium materials, rigorous quality control and a zero-compromise safety culture on every site.' },
+  { icon: 'star', title: 'Commitment to Clients', text: 'One accountable partner, honest costing and clear communication from first sketch to final handover.' },
 ]
 
 export default function About() {
@@ -33,8 +33,8 @@ export default function About() {
 
           <Reveal delay={0.2}>
             <div className="absolute -bottom-8 -left-4 hidden w-56 rounded-2xl bg-ink p-6 text-white shadow-2xl sm:block">
-              <p className="font-display text-4xl font-extrabold text-accent">27+</p>
-              <p className="mt-1 text-sm text-white/60">Years engineering excellence across five sectors.</p>
+              <p className="font-display text-4xl font-extrabold text-accent">17+</p>
+              <p className="mt-1 text-sm text-white/60">Years of engineering excellence across Ghana.</p>
             </div>
           </Reveal>
 
@@ -50,17 +50,20 @@ export default function About() {
           />
           <Reveal delay={0.1}>
             <p className="mt-6 text-muted">
-              ArkNova is a premium construction and engineering firm built on a simple
-              belief: great buildings come from great discipline. For nearly three
-              decades we have partnered with homeowners, developers and institutions
-              to deliver projects that are as sound as they are striking.
+              ArkNova is a premium Ghanaian construction and engineering firm built on a
+              simple belief: great buildings come from great discipline. For over a
+              decade we have partnered with homeowners, developers, schools, churches and
+              businesses across Ghana to deliver projects that are as sound as they are
+              striking.
             </p>
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-4 text-muted">
-              From the first concept sketch to the final handover, we own every detail —
-              design, engineering, costing, construction and finishing — so you have a
-              single, accountable partner from start to finish.
+              Our work is grounded in quality workmanship, honest pricing and an
+              uncompromising commitment to safety. From the first concept sketch to the
+              final handover, we own every detail — design, engineering, costing,
+              construction and finishing — so you have a single, accountable partner
+              devoted to excellence at every stage.
             </p>
           </Reveal>
 

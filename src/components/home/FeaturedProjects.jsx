@@ -7,7 +7,10 @@ import BeforeAfter from '../BeforeAfter'
 import Reveal from '../Reveal'
 import Button from '../Button'
 import Icon from '../Icon'
-import { PROJECTS, PROJECT_CATEGORIES } from '../../data/site'
+import { PROJECTS } from '../../data/site'
+
+// A curated, compact set of categories for the homepage carousel.
+const FEATURED_CATEGORIES = ['All', 'Residential Homes', 'Luxury Villas', 'Commercial Buildings', 'Schools', 'Apartment Buildings']
 
 export default function FeaturedProjects() {
   const [filter, setFilter] = useState('All')
@@ -78,7 +81,7 @@ export default function FeaturedProjects() {
 
         {/* filters */}
         <div className="mt-12 flex flex-wrap gap-2">
-          {PROJECT_CATEGORIES.map((c) => (
+          {FEATURED_CATEGORIES.map((c) => (
             <button
               key={c}
               onClick={() => setFilter(c)}

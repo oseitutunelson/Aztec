@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { NAV } from '../data/site'
+import { NAV, COMPANY } from '../data/site'
 import Logo from './Logo'
 import Button from './Button'
 import Icon from './Icon'
@@ -55,6 +55,14 @@ export default function Navbar() {
               ))}
             </ul>
 
+            <a
+              href={`tel:${COMPANY.phone}`}
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-colors hover:text-accent"
+            >
+              <Icon name="phone" size={16} />
+              {COMPANY.phone}
+            </a>
+
             <Button to="/contact" variant="accent" arrow={false} className="!rounded-lg !py-2.5 !px-6">
               Contact us
             </Button>
@@ -105,9 +113,15 @@ export default function Navbar() {
                 <Button to="/contact" variant="accent" className="w-full">
                   Contact us
                 </Button>
-                <div className="mt-6 flex items-center gap-3 text-white/60">
-                  <Icon name="phone" size={18} />
-                  <span className="text-sm">Call us anytime</span>
+                <div className="mt-6 flex flex-col gap-3">
+                  <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 text-white/80 transition-colors hover:text-accent">
+                    <Icon name="phone" size={18} />
+                    <span className="text-lg font-semibold">{COMPANY.phone}</span>
+                  </a>
+                  <a href={`tel:${COMPANY.phone2}`} className="flex items-center gap-3 text-white/80 transition-colors hover:text-accent">
+                    <Icon name="phone" size={18} />
+                    <span className="text-lg font-semibold">{COMPANY.phone2}</span>
+                  </a>
                 </div>
               </div>
             </div>

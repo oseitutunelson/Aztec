@@ -8,16 +8,16 @@ import Icon from '../components/Icon'
 import { COMPANY, SERVICE_CATEGORIES } from '../data/site'
 
 const CONTACT_CARDS = [
-  { icon: 'phone', label: 'Call Us', value: COMPANY.phone, href: `tel:${COMPANY.phone.replace(/[^+\d]/g, '')}` },
+  { icon: 'phone', label: 'Call Us', value: `${COMPANY.phone} · ${COMPANY.phone2}`, href: `tel:${COMPANY.phone}` },
   { icon: 'mail', label: 'Email Us', value: COMPANY.email, href: `mailto:${COMPANY.email}` },
   { icon: 'whatsapp', label: 'WhatsApp', value: 'Chat with our team', href: `https://wa.me/${COMPANY.whatsapp}` },
   { icon: 'pin', label: 'Visit Us', value: COMPANY.address, href: '#map' },
 ]
 
 const OFFICES = [
-  { city: 'Inglewood (HQ)', address: COMPANY.address, phone: COMPANY.phone },
-  { city: 'Seattle', address: '210 Pioneer Sq, Seattle, WA 98104', phone: '+1 (206) 555-0188' },
-  { city: 'Austin', address: '500 Congress Ave, Austin, TX 78701', phone: '+1 (512) 555-0123' },
+  { city: 'Accra (Head Office)', address: COMPANY.address, phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
+  { city: 'Kumasi', address: 'Adum, Kumasi, Ashanti Region', phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
+  { city: 'Takoradi', address: 'Market Circle, Takoradi, Western Region', phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
 ]
 
 export default function Contact() {
@@ -70,7 +70,7 @@ export default function Contact() {
                   <Field label="Email" type="email" required value={form.email} onChange={update('email')} placeholder="jane@email.com" />
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field label="Phone" value={form.phone} onChange={update('phone')} placeholder="+1 (555) 000-0000" />
+                  <Field label="Phone" value={form.phone} onChange={update('phone')} placeholder="055 433 1810" />
                   <div>
                     <label className="mb-2 block text-sm font-medium text-ink">Service</label>
                     <select value={form.service} onChange={update('service')} className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm focus:border-accent focus:outline-none">
@@ -82,7 +82,7 @@ export default function Contact() {
                 <div>
                   <label className="mb-2 block text-sm font-medium text-ink">Estimated Budget</label>
                   <div className="flex flex-wrap gap-2">
-                    {['< $50k', '$50k–$250k', '$250k–$1M', '$1M+'].map((b) => (
+                    {['< GH₵500k', 'GH₵500k–2M', 'GH₵2M–10M', 'GH₵10M+'].map((b) => (
                       <button type="button" key={b} onClick={() => setForm((f) => ({ ...f, budget: b }))} className={`rounded-full border px-4 py-2 text-sm transition-colors ${form.budget === b ? 'border-ink bg-ink text-white' : 'border-ink/15 text-ink/70 hover:border-ink'}`}>
                         {b}
                       </button>
@@ -120,6 +120,14 @@ export default function Contact() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  <a href={`tel:${COMPANY.phone}`} className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent-400">
+                    <Icon name="phone" size={16} /> {COMPANY.phone}
+                  </a>
+                  <a href={`tel:${COMPANY.phone2}`} className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-accent hover:text-accent">
+                    <Icon name="phone" size={16} /> {COMPANY.phone2}
+                  </a>
+                </div>
               </div>
             </Reveal>
             <Reveal delay={0.16}>
@@ -142,8 +150,8 @@ export default function Contact() {
         <div className="container-wide">
           <div className="overflow-hidden rounded-3xl border border-ink/10">
             <iframe
-              title="ArkNova office location"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-122.52%2C37.70%2C-122.35%2C37.83&layer=mapnik"
+              title="ArkNova office location — Accra, Ghana"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-0.2350%2C5.5600%2C-0.1450%2C5.6300&layer=mapnik"
               className="h-[420px] w-full grayscale"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
