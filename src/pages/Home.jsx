@@ -4,7 +4,6 @@ import TrustBar from '../components/home/TrustBar'
 import About from '../components/home/About'
 import Services from '../components/home/Services'
 import FeaturedProjects from '../components/home/FeaturedProjects'
-import Process from '../components/home/Process'
 import WhyChooseUs from '../components/home/WhyChooseUs'
 import Testimonials from '../components/home/Testimonials'
 import Partners from '../components/home/Partners'
@@ -23,7 +22,6 @@ export default function Home() {
       <About />
       <Services />
       <FeaturedProjects />
-      <Process />
       <WhyChooseUs />
       <Testimonials />
       <Partners />

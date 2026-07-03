@@ -15,9 +15,8 @@ const CONTACT_CARDS = [
 ]
 
 const OFFICES = [
-  { city: 'Accra (Head Office)', address: COMPANY.address, phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
-  { city: 'Kumasi', address: 'Adum, Kumasi, Ashanti Region', phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
-  { city: 'Takoradi', address: 'Market Circle, Takoradi, Western Region', phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
+  { city: 'Accra (Head Office)', address: 'East Legon, Ogbojo, Accra', phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
+  { city: 'Tamale', address: 'Tamale, Northern Region', phone: `${COMPANY.phone} · ${COMPANY.phone2}` },
 ]
 
 export default function Contact() {
@@ -25,10 +24,26 @@ export default function Contact() {
   const [sent, setSent] = useState(false)
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
+  // Build a formatted WhatsApp message from the form and open the chat.
+  const buildWhatsAppUrl = () => {
+    const lines = [
+      '*New Project Enquiry — ArkNova*',
+      '',
+      form.name && `*Name:* ${form.name}`,
+      form.email && `*Email:* ${form.email}`,
+      form.phone && `*Phone:* ${form.phone}`,
+      form.service && `*Service:* ${form.service}`,
+      form.budget && `*Budget:* ${form.budget}`,
+      form.message && `*Details:* ${form.message}`,
+    ].filter(Boolean)
+    return `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`
+  }
+
   const submit = (e) => {
     e.preventDefault()
+    window.open(buildWhatsAppUrl(), '_blank', 'noopener,noreferrer')
     setSent(true)
-    setTimeout(() => setSent(false), 5000)
+    setTimeout(() => setSent(false), 6000)
     setForm({ name: '', email: '', phone: '', service: '', budget: '', message: '' })
   }
 
@@ -94,12 +109,17 @@ export default function Contact() {
                   <textarea value={form.message} onChange={update('message')} rows={5} placeholder="Tell us about your project, location and timeline..." className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm focus:border-accent focus:outline-none" />
                 </div>
                 <button type="submit" className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-accent px-6 py-4 text-sm font-semibold text-ink transition-colors hover:bg-accent-400">
-                  Send Request
+                  <Icon name="whatsapp" size={18} />
+                  Send via WhatsApp
                   <span className="grid h-6 w-6 place-items-center rounded-full bg-ink text-accent transition-transform group-hover:translate-x-0.5"><Icon name="arrow" size={14} /></span>
                 </button>
+                <p className="text-center text-xs text-muted">
+                  Your details open in WhatsApp, ready to send to our team. Prefer email?{' '}
+                  <a href={`mailto:${COMPANY.email}`} className="font-semibold text-ink underline-offset-2 hover:underline">Email us</a> instead.
+                </p>
                 {sent && (
                   <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2 rounded-xl bg-accent/15 px-4 py-3 text-sm font-medium text-ink">
-                    <Icon name="check" size={18} /> Thank you — we&apos;ll be in touch within one business day.
+                    <Icon name="check" size={18} /> Opening WhatsApp — just press send and we&apos;ll be in touch within one business day.
                   </motion.p>
                 )}
               </form>
@@ -111,6 +131,9 @@ export default function Contact() {
             <Reveal delay={0.1}>
               <div className="rounded-3xl bg-ink p-8 text-white">
                 <h3 className="font-display text-xl font-bold">Our Offices</h3>
+                <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
+                  <Icon name="pin" size={14} /> {COMPANY.coverage}
+                </p>
                 <div className="mt-6 space-y-6">
                   {OFFICES.map((o) => (
                     <div key={o.city} className="border-b border-white/10 pb-6 last:border-0 last:pb-0">

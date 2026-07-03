@@ -69,7 +69,7 @@ export default function Projects() {
           {[
             { v: 350, s: '+', l: 'Projects' },
             { v: 10, s: '+', l: 'Sectors' },
-            { v: 17, s: '+', l: 'Years' },
+            { v: 18, s: '+', l: 'Years' },
             { v: 100, s: '%', l: 'On-time' },
           ].map((x) => (
             <Reveal key={x.l}>

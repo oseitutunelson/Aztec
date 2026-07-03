@@ -70,7 +70,7 @@ export default function About() {
               <p className="mt-6 text-muted">
                 ArkNova began in Accra in 2008 with a single crew and an uncompromising
                 standard for quality. What started as a residential builder has grown into
-                a full-service construction and engineering firm trusted by homeowners,
+                a full-service construction and engineering company trusted by homeowners,
                 developers, schools, churches and businesses across Ghana.
               </p>
             </Reveal>

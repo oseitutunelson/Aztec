@@ -2,10 +2,12 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
 import { unsplash } from '../../lib/img'
+import heroPortico from '../../assets/hero/hero-lit-portico.jpeg'
+import heroAerial from '../../assets/hero/hero-aerial-home.jpeg'
 
-// Imagery — swap these Unsplash ids for licensed brand photography when available.
-const HERO_WORKER = 'photo-1504307651254-35680f356dfd' // foreman in hi-vis + hard hat
-const HERO_WORKER_ALT = 'photo-1581094794329-c8112a89af12' // engineer reviewing plans
+// Imagery — ArkNova project photography.
+const HERO_WORKER = heroPortico // dusk exterior with LED-lit portico
+const HERO_WORKER_ALT = heroAerial // aerial view of a completed home
 const HERO_TEAM = 'photo-1541888946425-d81bb19240f5' // crew on site
 
 const containerVariants = {
@@ -125,14 +127,14 @@ export default function Hero() {
             >
               <div className="absolute right-0 top-0 h-[30rem] w-[22rem] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
                 <img
-                  src={unsplash(HERO_WORKER, { w: 900 })}
+                  src={HERO_WORKER}
                   alt=""
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="absolute bottom-0 left-2 h-[18rem] w-[15rem] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
                 <img
-                  src={unsplash(HERO_WORKER_ALT, { w: 700 })}
+                  src={HERO_WORKER_ALT}
                   alt=""
                   className="h-full w-full object-cover"
                 />

@@ -9,7 +9,8 @@ export const COMPANY = {
   // International format for WhatsApp / tel deep-links (Ghana +233).
   whatsapp: '233554331810',
   email: 'info@arknovaconstruction.com',
-  address: '12 Liberation Road, Airport Residential Area, Accra, Ghana',
+  address: 'East Legon, Ogbojo, Accra, Ghana',
+  coverage: 'Nationwide Construction Services across Ghana',
   hours: 'Mon – Fri · 8:00 AM – 6:00 PM',
   socials: [
     { label: 'Instagram', href: '#' },
@@ -28,7 +29,7 @@ export const NAV = [
 ]
 
 export const STATS = [
-  { value: 17, suffix: '+', label: 'Years of Experience' },
+  { value: 18, suffix: '+', label: 'Years of Experience' },
   { value: 350, suffix: '+', label: 'Projects Completed' },
   { value: 60, suffix: '+', label: 'Skilled Professionals' },
   { value: 100, suffix: '%', label: 'Happy Clients' },
@@ -426,6 +427,108 @@ export const PROJECTS = [
     challenge: 'Building a luxury home on a steep, scenic slope without spoiling the landscape.',
     solution: 'Terraced foundations and floor-to-ceiling glazing set the villa gently into the hillside.',
   },
+  {
+    slug: 'osu-townhouse-development',
+    name: 'OSU Townhouse Development',
+    category: 'Residential Homes',
+    year: '2025',
+    location: 'Osu, Accra',
+    cover: 'photo-1600607687939-ce8a6c25118c',
+    blurb: 'A cluster of modern townhouses featuring contemporary design, open floor plans and shared landscaping.',
+    scope: ['Architectural Design', 'Turnkey Construction', 'Exterior Works'],
+    size: '450 m² per unit',
+    duration: '12 months',
+    budget: 'GH₵ 2.8M per unit',
+    gallery: ['photo-1600607687939-ce8a6c25118c', 'photo-1600585154340-be6161a56a0c', 'photo-1564013799919-ab600027ffc6'],
+    challenge: 'Delivering multiple identical units with consistent quality and coordinated site operations.',
+    solution: 'Modular construction sequencing and prefab elements ensured all units met spec and opened on schedule.',
+    status: 'Under Construction',
+  },
+  {
+    slug: 'mataheko-luxury-estates',
+    name: 'Mataheko Luxury Estates',
+    category: 'Luxury Villas',
+    year: '2025',
+    location: 'Mataheko, Accra',
+    cover: 'photo-1600585154340-be6161a56a0c',
+    blurb: 'A premium three-bedroom luxury villa with high-end finishes, smart home integration and private pool.',
+    scope: ['Architectural Design', 'Luxury Construction', 'Smart Home', 'Interior Finishing'],
+    size: '520 m²',
+    duration: '14 months',
+    budget: 'GH₵ 4.2M',
+    gallery: ['photo-1600585154340-be6161a56a0c', 'photo-1564013799919-ab600027ffc6', 'photo-1487958449943-2429e8be8625'],
+    challenge: 'Delivering luxury finishes with smart systems in a fast-moving construction environment.',
+    solution: 'Early integration with MEP contractors and rigorous site sequencing prevented rework.',
+    status: 'Under Construction',
+  },
+  {
+    slug: 'spintex-octagon-villa',
+    name: 'Spintex Octagon Villa',
+    category: 'Luxury Villas',
+    year: '2025',
+    location: 'Spintex, Accra',
+    cover: 'photo-1545324418-cc1a3fa10c00',
+    blurb: 'An iconic octagonal luxury villa with 180° rooftop views, premium smart home features and bespoke finishes.',
+    scope: ['Architectural Design', 'Structural Engineering', 'Luxury Construction', 'Interior Finishing'],
+    size: '680 m²',
+    duration: '16 months',
+    budget: 'GH₵ 5.8M',
+    gallery: ['photo-1545324418-cc1a3fa10c00', 'photo-1487958449943-2429e8be8625', 'photo-1600566753086-00f18fb6b3ea'],
+    challenge: 'Engineering a unique octagonal design while maintaining structural integrity and premium finish.',
+    solution: 'Custom formwork and specialist finishers created the distinctive geometry without compromise.',
+    status: 'Roofing Phase',
+  },
+  {
+    slug: 'adenta-modern-residence',
+    name: 'Adenta Modern Residence',
+    category: 'Residential Homes',
+    year: '2025',
+    location: 'Adenta, Accra',
+    cover: 'photo-1481253127861-534498168948',
+    blurb: 'A contemporary four-bedroom home with clean architectural lines, minimalist interiors and landscaped grounds.',
+    scope: ['Architectural Design', 'Construction', 'Interior Finishing', 'Landscaping'],
+    size: '480 m²',
+    duration: '13 months',
+    budget: 'GH₵ 2.9M',
+    gallery: ['photo-1481253127861-534498168948', 'photo-1600607687939-ce8a6c25118c', 'photo-1600585154340-be6161a56a0c'],
+    challenge: 'Creating a minimalist contemporary design that remains warm and livable for a family.',
+    solution: 'Strategic use of materials and natural light softened the geometric design while keeping costs down.',
+    status: 'Interior Finishing',
+  },
+  {
+    slug: 'tema-beachfront-modern',
+    name: 'Tema Beachfront Modern',
+    category: 'Residential Homes',
+    year: '2025',
+    location: 'Tema, Greater Accra',
+    cover: 'photo-1487958449943-2429e8be8625',
+    blurb: 'A modern three-bedroom beachfront residence with floor-to-ceiling glass, premium materials and sea views.',
+    scope: ['Architectural Design', 'Construction', 'MEP Engineering', 'Interior Finishing'],
+    size: '520 m²',
+    duration: '15 months',
+    budget: 'GH₵ 3.6M',
+    gallery: ['photo-1487958449943-2429e8be8625', 'photo-1545324418-cc1a3fa10c00', 'photo-1481253127861-534498168948'],
+    challenge: 'Building a durable, corrosion-resistant home in a salt-air coastal environment.',
+    solution: 'Marine-grade materials and protective coatings ensured long-term durability and aesthetic appeal.',
+    status: 'Structural Complete',
+  },
+  {
+    slug: 'airport-residential-complex',
+    name: 'Airport Residential Complex',
+    category: 'Residential Homes',
+    year: '2025',
+    location: 'Airport Residential Area, Accra',
+    cover: 'photo-1449157291145-7efd050a4d0e',
+    blurb: 'A cluster of five modern family homes featuring identical floor plans, shared security and landscaped common areas.',
+    scope: ['Architectural Design', 'Turnkey Construction', 'Exterior Works', 'Landscaping'],
+    size: '400 m² per unit',
+    duration: '18 months',
+    budget: 'GH₵ 2.4M per unit',
+    gallery: ['photo-1449157291145-7efd050a4d0e', 'photo-1487958449943-2429e8be8625', 'photo-1545324418-cc1a3fa10c00'],
+    challenge: 'Coordinating construction of multiple homes with shared infrastructure and staged handovers.',
+    solution: 'Integrated site planning and parallel construction workflows allowed phased occupancy.',
+    status: 'Final Touches',
+  },
 ]
 
 export const PROJECT_CATEGORIES = [
@@ -479,8 +582,8 @@ export const TESTIMONIALS = [
 
 // Familiar Ghanaian brands & institutions shown as clean branded placeholders.
 export const PARTNERS = [
-  'Ghacem', 'Dzata Cement', 'K. Ofori Ltd.', 'Melcom', 'Devtraco',
-  'Trasacco', 'Kasapreko', 'Ecobank Ghana', 'Stanbic Bank Ghana', 'GOIL',
+  'Ghacem', 'Dzata Cement', 'K. Ofori Ltd.', 'Melcom', 'Chokmah Construction',
+  'Shipman Global', 'M&N', 'Ecobank Ghana', 'Stanbic Bank Ghana', 'Doxa Streams',
 ]
 
 export const FAQS = [
@@ -506,7 +609,7 @@ export const FAQS = [
   },
   {
     q: 'Where do you operate?',
-    a: 'We are based in Accra and deliver projects across Ghana — from Greater Accra and Kumasi to Takoradi and beyond. Reach out with your location and we will confirm availability.',
+    a: 'We are based in Accra (East Legon, Ogbojo) with a branch in Tamale, and we provide nationwide construction services across Ghana. Reach out with your location and we will confirm availability.',
   },
 ]
 
@@ -526,7 +629,7 @@ export const MILESTONES = [
   { year: '2016', title: 'Engineering Division', text: 'Launched in-house structural and MEP engineering capability.' },
   { year: '2019', title: 'Design Studio', text: 'Opened a full architectural design and 3D visualization studio.' },
   { year: '2022', title: '300+ Projects', text: 'Surpassed 300 completed projects across Ghana.' },
-  { year: '2025', title: 'Nationwide Delivery', text: 'Expanded delivery from Accra and Kumasi to Takoradi and beyond.' },
+  { year: '2025', title: 'Nationwide Delivery', text: 'Grew from Accra and Tamale into nationwide construction services across Ghana.' },
 ]
 
 // Company commitments shown on the About page.

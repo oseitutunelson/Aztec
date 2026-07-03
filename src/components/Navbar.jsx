@@ -85,47 +85,83 @@ export default function Navbar() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 top-0 z-40 bg-ink/98 backdrop-blur-xl lg:hidden"
-          >
-            <div className="flex h-full flex-col px-6 pt-28 pb-10">
-              <ul className="flex flex-col gap-2">
-                {NAV.map((item, i) => (
-                  <motion.li
-                    key={item.to}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.06 * i }}
-                  >
-                    <Link
-                      to={item.to}
-                      className="display block py-2 text-5xl text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-              <div className="mt-auto">
-                <Button to="/contact" variant="accent" className="w-full">
+          <div className="fixed inset-0 z-40 lg:hidden">
+            {/* Backdrop */}
+            <motion.button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
+            />
+
+            {/* Compact slide-out panel */}
+            <motion.aside
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', ease: [0.22, 1, 0.36, 1], duration: 0.35 }}
+              className="absolute right-0 top-0 flex h-full w-[78%] max-w-xs flex-col border-l border-white/10 bg-ink shadow-2xl"
+            >
+              <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+                <Logo className="text-white" />
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-accent hover:text-accent"
+                >
+                  <span className="relative block h-4 w-4">
+                    <span className="absolute left-0 top-1/2 h-0.5 w-4 -translate-y-1/2 rotate-45 bg-current" />
+                    <span className="absolute left-0 top-1/2 h-0.5 w-4 -translate-y-1/2 -rotate-45 bg-current" />
+                  </span>
+                </button>
+              </div>
+
+              <nav className="flex-1 overflow-y-auto px-3 py-4">
+                <ul className="flex flex-col">
+                  {NAV.map((item) => (
+                    <li key={item.to}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          `block rounded-xl px-3 py-3 text-base font-medium transition-colors ${
+                            isActive
+                              ? 'bg-white/5 text-accent'
+                              : 'text-white/80 hover:bg-white/5 hover:text-white'
+                          }`
+                        }
+                      >
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className="border-t border-white/10 px-6 py-5">
+                <Button to="/contact" variant="accent" arrow={false} className="w-full !py-3 !text-sm">
                   Contact us
                 </Button>
-                <div className="mt-6 flex flex-col gap-3">
-                  <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 text-white/80 transition-colors hover:text-accent">
-                    <Icon name="phone" size={18} />
-                    <span className="text-lg font-semibold">{COMPANY.phone}</span>
+                <div className="mt-4 flex flex-col gap-2.5">
+                  <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2.5 text-sm text-white/75 transition-colors hover:text-accent">
+                    <Icon name="phone" size={15} />
+                    <span className="font-medium">{COMPANY.phone}</span>
                   </a>
-                  <a href={`tel:${COMPANY.phone2}`} className="flex items-center gap-3 text-white/80 transition-colors hover:text-accent">
-                    <Icon name="phone" size={18} />
-                    <span className="text-lg font-semibold">{COMPANY.phone2}</span>
+                  <a href={`tel:${COMPANY.phone2}`} className="flex items-center gap-2.5 text-sm text-white/75 transition-colors hover:text-accent">
+                    <Icon name="phone" size={15} />
+                    <span className="font-medium">{COMPANY.phone2}</span>
+                  </a>
+                  <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2.5 text-sm text-white/55 transition-colors hover:text-accent">
+                    <Icon name="mail" size={15} />
+                    <span>{COMPANY.email}</span>
                   </a>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.aside>
+          </div>
         )}
       </AnimatePresence>
     </header>

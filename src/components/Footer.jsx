@@ -43,6 +43,9 @@ export default function Footer() {
             Premium Ghanaian architectural design, construction and engineering —
             from first sketch to final handover.
           </p>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent/15 px-3.5 py-1.5 text-xs font-semibold text-accent">
+            <Icon name="pin" size={13} /> {COMPANY.coverage}
+          </p>
           <div className="mt-6 flex flex-col gap-2">
             <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2.5 text-sm font-semibold text-white/80 transition-colors hover:text-accent">
               <Icon name="phone" size={15} /> {COMPANY.phone}

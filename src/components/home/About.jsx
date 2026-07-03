@@ -3,7 +3,7 @@ import SectionHeading from '../SectionHeading'
 import Reveal from '../Reveal'
 import Button from '../Button'
 import Icon from '../Icon'
-import { unsplash } from '../../lib/img'
+import aboutEngineer from '../../assets/hero/about-engineer.jpeg'
 
 const PILLARS = [
   { icon: 'shield', title: 'Quality & Safety', text: 'Premium materials, rigorous quality control and a zero-compromise safety culture on every site.' },
@@ -19,8 +19,8 @@ export default function About() {
           <Reveal direction="right">
             <div className="overflow-hidden rounded-3xl">
               <motion.img
-                src={unsplash('photo-1503387762-592deb58ef4e', { w: 1000 })}
-                alt="ArkNova construction site"
+                src={aboutEngineer}
+                alt="ArkNova engineer reviewing project details on site"
                 loading="lazy"
                 className="h-[460px] w-full object-cover sm:h-[560px]"
                 initial={{ scale: 1.15 }}
@@ -33,7 +33,7 @@ export default function About() {
 
           <Reveal delay={0.2}>
             <div className="absolute -bottom-8 -left-4 hidden w-56 rounded-2xl bg-ink p-6 text-white shadow-2xl sm:block">
-              <p className="font-display text-4xl font-extrabold text-accent">17+</p>
+              <p className="font-display text-4xl font-extrabold text-accent">18+</p>
               <p className="mt-1 text-sm text-white/60">Years of engineering excellence across Ghana.</p>
             </div>
           </Reveal>
@@ -50,7 +50,7 @@ export default function About() {
           />
           <Reveal delay={0.1}>
             <p className="mt-6 text-muted">
-              ArkNova is a premium Ghanaian construction and engineering firm built on a
+              ArkNova is a premium Ghanaian construction and engineering company built on a
               simple belief: great buildings come from great discipline. For over a
               decade we have partnered with homeowners, developers, schools, churches and
               businesses across Ghana to deliver projects that are as sound as they are
