@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
-import { unsplash } from '../../lib/img'
 import heroPortico from '../../assets/hero/hero-lit-portico.jpeg'
 import heroAerial from '../../assets/hero/hero-aerial-home.jpeg'
+import heroEngineer from '../../assets/projects/engineer.jpeg'
 
 // Imagery — ArkNova project photography.
 const HERO_WORKER = heroPortico // dusk exterior with LED-lit portico
 const HERO_WORKER_ALT = heroAerial // aerial view of a completed home
-const HERO_TEAM = 'photo-1541888946425-d81bb19240f5' // crew on site
+const HERO_TEAM = heroEngineer // ArkNova site engineer at work
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -105,8 +105,8 @@ export default function Hero() {
               >
                 <div className="h-24 w-36 shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-xl sm:h-28 sm:w-44">
                   <img
-                    src={unsplash(HERO_TEAM, { w: 400 })}
-                    alt="Construction crew on site"
+                    src={HERO_TEAM}
+                    alt="ArkNova site engineer at work"
                     loading="lazy"
                     className="h-full w-full object-cover"
                   />

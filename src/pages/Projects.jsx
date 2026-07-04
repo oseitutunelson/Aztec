@@ -8,7 +8,7 @@ import SectionHeading from '../components/SectionHeading'
 import Reveal from '../components/Reveal'
 import Counter from '../components/Counter'
 import Icon from '../components/Icon'
-import { unsplash } from '../lib/img'
+import { img } from '../lib/img'
 import { PROJECTS, PROJECT_CATEGORIES } from '../data/site'
 
 // Premium light-theme project card for the portfolio grid.
@@ -18,7 +18,7 @@ function PortfolioCard({ project, index }) {
       <Link to={`/projects/${project.slug}`} className="group block overflow-hidden rounded-3xl border border-ink/10 bg-white transition-all duration-500 hover:border-accent hover:shadow-[0_30px_70px_-40px_rgba(0,0,0,0.4)]">
         <div className="relative overflow-hidden">
           <img
-            src={unsplash(project.cover, { w: 900 })}
+            src={img(project.cover, { w: 900 })}
             alt={project.name}
             loading="lazy"
             className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -125,7 +125,7 @@ export default function Projects() {
         <div className="container-wide">
           <SectionHeading eyebrow="— Transformations" title="Before & after" align="center" />
           <div className="mx-auto mt-12 max-w-4xl">
-            <BeforeAfter before="photo-1574359411659-15573a27fd0c" after="photo-1600566753086-00f18fb6b3ea" />
+            <BeforeAfter before="beforeafter-before.jpeg" after="beforeafter-after.jpeg" />
           </div>
         </div>
       </section>

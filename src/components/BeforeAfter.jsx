@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback } from 'react'
-import { unsplash } from '../lib/img'
+import { img } from '../lib/img'
 
 // Draggable before/after comparison slider.
 export default function BeforeAfter({ before, after, beforeLabel = 'Before', afterLabel = 'After', className = '' }) {
@@ -35,12 +35,12 @@ export default function BeforeAfter({ before, after, beforeLabel = 'Before', aft
       onTouchMove={onMove}
       onTouchEnd={onUp}
     >
-      <img src={unsplash(after, { w: 1000 })} alt={afterLabel} loading="lazy" className="block aspect-[16/10] w-full object-cover" />
+      <img src={img(after, { w: 1000 })} alt={afterLabel} loading="lazy" className="block aspect-[16/10] w-full object-cover" />
       <span className="absolute right-4 top-4 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-ink">{afterLabel}</span>
 
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
         <img
-          src={unsplash(before, { w: 1000 })}
+          src={img(before, { w: 1000 })}
           alt={beforeLabel}
           loading="lazy"
           className="block aspect-[16/10] h-full w-full object-cover grayscale"

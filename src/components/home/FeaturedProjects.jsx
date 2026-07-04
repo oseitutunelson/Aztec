@@ -10,7 +10,7 @@ import Icon from '../Icon'
 import { PROJECTS } from '../../data/site'
 
 // A curated, compact set of categories for the homepage carousel.
-const FEATURED_CATEGORIES = ['All', 'Residential Homes', 'Luxury Villas', 'Commercial Buildings', 'Schools', 'Apartment Buildings']
+const FEATURED_CATEGORIES = ['All', 'Luxury Villas', 'Modern Homes', 'Residential Estates', 'Ongoing Builds']
 
 export default function FeaturedProjects() {
   const [filter, setFilter] = useState('All')
@@ -181,8 +181,8 @@ export default function FeaturedProjects() {
           </Reveal>
           <Reveal direction="left">
             <BeforeAfter
-              before="photo-1581094794329-c8112a89af12"
-              after="photo-1600585154340-be6161a56a0c"
+              before="beforeafter-before.jpeg"
+              after="beforeafter-after.jpeg"
             />
           </Reveal>
         </div>

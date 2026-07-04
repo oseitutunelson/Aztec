@@ -5,7 +5,7 @@ import SectionHeading from '../components/SectionHeading'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 import Button from '../components/Button'
-import { unsplash } from '../lib/img'
+import { img } from '../lib/img'
 import { PROJECTS, TESTIMONIALS } from '../data/site'
 
 export default function ProjectDetails() {
@@ -51,7 +51,7 @@ export default function ProjectDetails() {
       {/* Hero */}
       <section className="relative flex min-h-[80vh] items-end overflow-hidden bg-ink pb-16 pt-40 text-white">
         <motion.img
-          src={unsplash(project.cover, { w: 1800, q: 60 })}
+          src={img(project.cover, { w: 1800, q: 60 })}
           alt={project.name}
           initial={{ scale: 1.15 }}
           animate={{ scale: 1 }}
@@ -170,7 +170,7 @@ export default function ProjectDetails() {
             {project.gallery.map((g, i) => (
               <Reveal key={g} delay={(i % 3) * 0.08}>
                 <div className={`overflow-hidden rounded-2xl ${i === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}>
-                  <img src={unsplash(g, { w: 1000 })} alt={`${project.name} ${i + 1}`} loading="lazy" className="h-full min-h-[240px] w-full object-cover transition-transform duration-700 hover:scale-105" />
+                  <img src={img(g, { w: 1000 })} alt={`${project.name} ${i + 1}`} loading="lazy" className="h-full min-h-[240px] w-full object-cover transition-transform duration-700 hover:scale-105" />
                 </div>
               </Reveal>
             ))}
@@ -187,7 +187,7 @@ export default function ProjectDetails() {
             </div>
             <p className="display text-3xl leading-snug sm:text-4xl">“{t.quote}”</p>
             <div className="mt-8 flex items-center justify-center gap-4">
-              <img src={unsplash(t.photo, { w: 120 })} alt={t.name} loading="lazy" className="h-14 w-14 rounded-full object-cover" />
+              <img src={img(t.photo, { w: 120 })} alt={t.name} loading="lazy" className="h-14 w-14 rounded-full object-cover" />
               <div className="text-left">
                 <p className="font-display text-lg font-bold">{t.name}</p>
                 <p className="text-sm text-accent">{t.role}</p>

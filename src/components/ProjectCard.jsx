@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Icon from './Icon'
-import { unsplash } from '../lib/img'
+import { img } from '../lib/img'
 
 // Dark project card matching "Take A Look At Our Latest Projects".
 export default function ProjectCard({ project, index = 0 }) {
@@ -16,7 +16,7 @@ export default function ProjectCard({ project, index = 0 }) {
       <Link to={`/projects/${project.slug}`} className="block">
         <div className="relative overflow-hidden rounded-[28px]">
           <img
-            src={unsplash(project.cover, { w: 900 })}
+            src={img(project.cover, { w: 900 })}
             alt={project.name}
             loading="lazy"
             className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-110"

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Button from '../Button'
 import Reveal from '../Reveal'
-import { unsplash } from '../../lib/img'
+import { img } from '../../lib/img'
 
 // "Start Building With Confidence Today" — dark blueprint CTA from the design.
 export default function FinalCta() {
@@ -10,7 +10,7 @@ export default function FinalCta() {
       {/* blueprint background image + grid */}
       <div className="absolute inset-0">
         <img
-          src={unsplash('photo-1503387762-592deb58ef4e', { w: 1600, q: 50 })}
+          src={img('photo-1503387762-592deb58ef4e', { w: 1600, q: 50 })}
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -20,14 +20,13 @@ export default function FinalCta() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/90" />
       </div>
 
-      {/* equipment silhouette accent */}
+      {/* site engineer accent */}
       <motion.img
-        src={unsplash('photo-1581094794329-c8112a89af12', { w: 600, q: 50 })}
-        alt=""
-        aria-hidden="true"
+        src={img('cta-engineer.jpeg')}
+        alt="ArkNova site engineer"
         loading="lazy"
         initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 0.85, x: 0 }}
+        whileInView={{ opacity: 0.95, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
         className="absolute bottom-0 left-0 hidden w-80 rounded-tr-3xl object-cover lg:block"
