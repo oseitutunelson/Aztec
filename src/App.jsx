@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
@@ -12,6 +12,10 @@ const ProjectDetails = lazy(() => import('./pages/ProjectDetails'))
 const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
+// The admin dashboard is a self-contained sub-app with its own chrome, so it is
+// rendered outside the public site Layout.
+const AdminApp = lazy(() => import('./admin/AdminApp'))
+
 function PageFallback() {
   return (
     <div className="grid min-h-screen place-items-center bg-ink">
@@ -21,6 +25,19 @@ function PageFallback() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+
+  // Admin area: no public navbar/footer, separate route tree.
+  if (pathname.startsWith('/admin')) {
+    return (
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route path="/admin/*" element={<AdminApp />} />
+        </Routes>
+      </Suspense>
+    )
+  }
+
   return (
     <Layout>
       <ScrollToTop />

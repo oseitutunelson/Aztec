@@ -7,7 +7,7 @@ import BeforeAfter from '../BeforeAfter'
 import Reveal from '../Reveal'
 import Button from '../Button'
 import Icon from '../Icon'
-import { PROJECTS } from '../../data/site'
+import { usePublicProjects } from '../../lib/api/projects'
 
 // A curated, compact set of categories for the homepage carousel.
 const FEATURED_CATEGORIES = ['All', 'Luxury Villas', 'Modern Homes', 'Residential Estates', 'Ongoing Builds']
@@ -18,7 +18,11 @@ export default function FeaturedProjects() {
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
   const carouselRef = useRef(null)
-  const list = filter === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === filter)
+  const { data: allProjects = [] } = usePublicProjects()
+  // Prefer explicitly featured projects; fall back to all if none are featured.
+  const featured = allProjects.filter((p) => p.featured)
+  const source = featured.length ? featured : allProjects
+  const list = filter === 'All' ? source : source.filter((p) => p.category === filter)
 
   const updateScrollState = () => {
     const carousel = carouselRef.current

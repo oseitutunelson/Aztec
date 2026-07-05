@@ -6,12 +6,22 @@ import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 import Button from '../components/Button'
 import { img } from '../lib/img'
-import { PROJECTS, TESTIMONIALS } from '../data/site'
+import { usePublicProjects } from '../lib/api/projects'
+import { TESTIMONIALS } from '../data/site'
 
 export default function ProjectDetails() {
   const { slug } = useParams()
+  const { data: PROJECTS = [], isLoading } = usePublicProjects()
   const project = PROJECTS.find((p) => p.slug === slug)
   const t = TESTIMONIALS[0]
+
+  if (isLoading && !project) {
+    return (
+      <div className="grid min-h-[70vh] place-items-center bg-white pt-32">
+        <div className="h-10 w-10 animate-spin rounded-full border-2 border-ink/15 border-t-accent" />
+      </div>
+    )
+  }
 
   if (!project) {
     return (
@@ -25,8 +35,10 @@ export default function ProjectDetails() {
   }
 
   const idx = PROJECTS.findIndex((p) => p.slug === slug)
-  const next = PROJECTS[(idx + 1) % PROJECTS.length]
+  const next = PROJECTS[(idx + 1) % PROJECTS.length] || project
 
+  // Only surface facts that have a value (admin-created projects may omit the
+  // supplementary size/duration/budget fields).
   const facts = [
     { label: 'Location', value: project.location },
     { label: 'Year', value: project.year },
@@ -34,7 +46,7 @@ export default function ProjectDetails() {
     { label: 'Duration', value: project.duration },
     { label: 'Budget', value: project.budget },
     { label: 'Category', value: project.category },
-  ]
+  ].filter((f) => f.value)
 
   const costBreakdown = [
     { label: 'Design & Engineering', pct: 14 },
@@ -90,42 +102,49 @@ export default function ProjectDetails() {
             <SectionHeading eyebrow="— Overview" title="Project overview" size="md" />
             <Reveal delay={0.1}>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                {project.name} is a {project.category.toLowerCase()} project in {project.location},
-                delivered over {project.duration}. ArkNova led the engagement end-to-end — from
-                design and engineering through construction and finishing — to a turnkey handover.
+                {project.fullDesc ||
+                  `${project.name} is a ${(project.category || 'construction').toLowerCase()} project${project.location ? ` in ${project.location}` : ''}${project.duration ? `, delivered over ${project.duration}` : ''}. ArkNova led the engagement end-to-end — from design and engineering through construction and finishing — to a turnkey handover.`}
               </p>
             </Reveal>
 
-            <div className="mt-12 grid gap-8 sm:grid-cols-2">
-              <Reveal>
-                <div className="rounded-3xl border border-ink/10 p-7">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-accent"><Icon name="bolt" size={22} /></span>
-                  <h3 className="mt-4 font-display text-xl font-bold">The Challenge</h3>
-                  <p className="mt-3 text-sm text-muted">{project.challenge}</p>
-                </div>
-              </Reveal>
-              <Reveal delay={0.08}>
-                <div className="rounded-3xl border border-ink/10 bg-accent p-7">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-accent"><Icon name="check" size={22} /></span>
-                  <h3 className="mt-4 font-display text-xl font-bold">Our Solution</h3>
-                  <p className="mt-3 text-sm text-ink/75">{project.solution}</p>
-                </div>
-              </Reveal>
-            </div>
+            {(project.challenge || project.solution) && (
+              <div className="mt-12 grid gap-8 sm:grid-cols-2">
+                {project.challenge && (
+                  <Reveal>
+                    <div className="rounded-3xl border border-ink/10 p-7">
+                      <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-accent"><Icon name="bolt" size={22} /></span>
+                      <h3 className="mt-4 font-display text-xl font-bold">The Challenge</h3>
+                      <p className="mt-3 text-sm text-muted">{project.challenge}</p>
+                    </div>
+                  </Reveal>
+                )}
+                {project.solution && (
+                  <Reveal delay={0.08}>
+                    <div className="rounded-3xl border border-ink/10 bg-accent p-7">
+                      <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-accent"><Icon name="check" size={22} /></span>
+                      <h3 className="mt-4 font-display text-xl font-bold">Our Solution</h3>
+                      <p className="mt-3 text-sm text-ink/75">{project.solution}</p>
+                    </div>
+                  </Reveal>
+                )}
+              </div>
+            )}
           </div>
 
           {/* scope */}
           <aside>
             <div className="sticky top-28 rounded-3xl bg-ink p-8 text-white">
-              <h3 className="font-display text-xl font-bold">Scope of Work</h3>
-              <ul className="mt-5 space-y-3">
-                {project.scope.map((s) => (
-                  <li key={s} className="flex items-center gap-3 text-sm">
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-ink"><Icon name="check" size={13} /></span>
-                    {s}
-                  </li>
-                ))}
-              </ul>
+              <h3 className="font-display text-xl font-bold">{project.scope?.length ? 'Scope of Work' : 'Project'}</h3>
+              {project.scope?.length > 0 && (
+                <ul className="mt-5 space-y-3">
+                  {project.scope.map((s) => (
+                    <li key={s} className="flex items-center gap-3 text-sm">
+                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-ink"><Icon name="check" size={13} /></span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm text-white/55">Planning a similar project?</p>
                 <div className="mt-4"><Button to="/contact" variant="accent" className="w-full">Request a Quote</Button></div>

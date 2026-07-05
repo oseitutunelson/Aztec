@@ -9,7 +9,7 @@ import Reveal from '../components/Reveal'
 import Counter from '../components/Counter'
 import Icon from '../components/Icon'
 import { img } from '../lib/img'
-import { PROJECTS, PROJECT_CATEGORIES } from '../data/site'
+import { usePublicProjects } from '../lib/api/projects'
 
 // Premium light-theme project card for the portfolio grid.
 function PortfolioCard({ project, index }) {
@@ -46,12 +46,11 @@ function PortfolioCard({ project, index }) {
 
 export default function Projects() {
   const [filter, setFilter] = useState('All')
+  const { data: PROJECTS = [] } = usePublicProjects()
   const list = filter === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === filter)
 
-  // Only show category chips that actually have projects.
-  const categories = PROJECT_CATEGORIES.filter(
-    (c) => c === 'All' || PROJECTS.some((p) => p.category === c)
-  )
+  // Category chips derived from the live project data.
+  const categories = ['All', ...Array.from(new Set(PROJECTS.map((p) => p.category).filter(Boolean)))]
 
   return (
     <>

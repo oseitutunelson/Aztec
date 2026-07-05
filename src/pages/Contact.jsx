@@ -65,7 +65,7 @@ export default function Contact() {
               <a href={c.href} className="group block h-full rounded-3xl border border-ink/10 p-7 transition-colors hover:border-ink hover:bg-ink hover:text-white">
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent text-ink"><Icon name={c.icon} size={24} /></span>
                 <p className="mt-5 text-xs uppercase tracking-wide text-ink/40 group-hover:text-white/50">{c.label}</p>
-                <p className="mt-1 font-display text-lg font-bold">{c.value}</p>
+                <p className="mt-1 break-words font-display text-lg font-bold">{c.value}</p>
               </a>
             </Reveal>
           ))}

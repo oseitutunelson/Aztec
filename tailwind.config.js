@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
+  // Class-based dark mode is used only inside the admin dashboard (a `.dark`
+  // wrapper). The public site uses fixed backgrounds and no `dark:` variants,
+  // so enabling this does not affect it.
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
