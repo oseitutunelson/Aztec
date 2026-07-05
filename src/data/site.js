@@ -236,8 +236,22 @@ export const WHY_US = [
 
 export const PROJECTS = [
   {
-    slug: 'aurora-pavilion',
-    name: 'Aurora Pavilion',
+    slug: 'the-aseda-residence',
+    name: 'The Aseda Residence',
+    category: 'Modern Homes',
+    year: '2026',
+    location: 'Accra, Ghana',
+    cover: 'aseda-3.jpeg',
+    blurb:
+      'A contemporary flat-roof residence wrapped in natural stone cladding, floor-to-ceiling black-framed glazing and a marble-finished portico, set on a fully paved compound with soft pebble landscaping.',
+    scope: ['Architectural Design', 'Construction', 'Interior Finishing', 'Landscaping'],
+    gallery: ['aseda-3.jpeg', 'aseda-1.jpeg', 'aseda-2.jpeg'],
+    status: 'Completed',
+    featured: true,
+  },
+  {
+    slug: 'the-gold-coast-collection',
+    name: 'The Gold Coast Collection',
     category: 'Modern Homes',
     year: '2025',
     location: 'Oyarifa, Accra',
@@ -253,8 +267,8 @@ export const PROJECTS = [
     status: 'Interior Finishing',
   },
   {
-    slug: 'ivory-court-home',
-    name: 'Ivory Court Home',
+    slug: 'the-asomdwee-portfolio',
+    name: 'The Asomdwee Portfolio',
     category: 'Modern Homes',
     year: '2024',
     location: 'Spintex, Accra',
@@ -270,8 +284,8 @@ export const PROJECTS = [
     status: 'Completed',
   },
   {
-    slug: 'the-ashford-manor',
-    name: 'The Ashford Manor',
+    slug: 'the-akwaaba-series',
+    name: 'The Akwaaba Series',
     category: 'Luxury Villas',
     year: '2025',
     location: 'East Legon Hills, Accra',
@@ -287,8 +301,8 @@ export const PROJECTS = [
     status: 'Finishing Phase',
   },
   {
-    slug: 'crown-ridge-villa',
-    name: 'Crown Ridge Villa',
+    slug: 'the-sankofa-legacy',
+    name: 'The Sankofa Legacy',
     category: 'Luxury Villas',
     year: '2024',
     location: 'Trasacco, Accra',
@@ -304,8 +318,8 @@ export const PROJECTS = [
     status: 'Roofing Complete',
   },
   {
-    slug: 'slate-court-residences',
-    name: 'Slate Court Residences',
+    slug: 'the-ayekoo-projects',
+    name: 'The Ayekoo Projects',
     category: 'Residential Estates',
     year: '2025',
     location: 'Kwabenya, Accra',
@@ -321,8 +335,8 @@ export const PROJECTS = [
     status: 'Completed',
   },
   {
-    slug: 'palm-grove-bungalows',
-    name: 'Palm Grove Bungalows',
+    slug: 'the-edwumawura-projects',
+    name: 'The Edwumawura Projects',
     category: 'Residential Estates',
     year: '2024',
     location: 'Prampram, Greater Accra',
@@ -338,8 +352,8 @@ export const PROJECTS = [
     status: 'Finishing Phase',
   },
   {
-    slug: 'terracotta-roof-residence',
-    name: 'Terracotta Roof Residence',
+    slug: 'the-nkosuo-series',
+    name: 'The Nkosuo Series',
     category: 'Modern Homes',
     year: '2024',
     location: 'Aburi, Eastern Region',
@@ -355,8 +369,8 @@ export const PROJECTS = [
     status: 'Roofing Complete',
   },
   {
-    slug: 'vantage-bungalow',
-    name: 'Vantage Bungalow',
+    slug: 'the-adom-projects',
+    name: 'The Adom Projects',
     category: 'Modern Homes',
     year: '2025',
     location: 'Dodowa, Greater Accra',
@@ -372,8 +386,8 @@ export const PROJECTS = [
     status: 'Nearing Completion',
   },
   {
-    slug: 'milestone-heights',
-    name: 'Milestone Heights',
+    slug: 'the-oye-excellence-series',
+    name: 'The Oye (Excellence) Series',
     category: 'Ongoing Builds',
     year: '2025',
     location: 'Amasaman, Greater Accra',

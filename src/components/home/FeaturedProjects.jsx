@@ -19,9 +19,11 @@ export default function FeaturedProjects() {
   const [canScrollRight, setCanScrollRight] = useState(true)
   const carouselRef = useRef(null)
   const { data: allProjects = [] } = usePublicProjects()
-  // Prefer explicitly featured projects; fall back to all if none are featured.
-  const featured = allProjects.filter((p) => p.featured)
-  const source = featured.length ? featured : allProjects
+  // Surface featured projects first, but keep the rest visible below them.
+  const source = [
+    ...allProjects.filter((p) => p.featured),
+    ...allProjects.filter((p) => !p.featured),
+  ]
   const list = filter === 'All' ? source : source.filter((p) => p.category === filter)
 
   const updateScrollState = () => {

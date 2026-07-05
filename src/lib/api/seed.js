@@ -34,7 +34,8 @@ async function seedProjects() {
         full_desc: p.blurb,
         cover_url: p.cover,
         status: p.status?.toLowerCase().includes('complete') ? 'Completed' : 'Ongoing',
-        featured: order < 3, // feature the first few
+        // Honor an explicit `featured` flag from site.js; otherwise feature the first few.
+        featured: p.featured != null ? p.featured : order < 3,
         display_order: order++,
         details: {
           year: p.year,
