@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionHeading from '../SectionHeading'
 import Icon from '../Icon'
-import { unsplash } from '../../lib/img'
+import { img } from '../../lib/img'
 import { TESTIMONIALS } from '../../data/site'
 
 export default function Testimonials() {
@@ -21,7 +21,7 @@ export default function Testimonials() {
             <AnimatePresence mode="wait">
               <motion.img
                 key={t.photo}
-                src={unsplash(t.photo, { w: 600 })}
+                src={img(t.photo, { w: 600 })}
                 alt={t.name}
                 loading="lazy"
                 initial={{ opacity: 0, scale: 1.05 }}
@@ -57,7 +57,7 @@ export default function Testimonials() {
                 </p>
                 <div className="mt-8 flex items-center gap-4">
                   <img
-                    src={unsplash(t.photo, { w: 120 })}
+                    src={img(t.photo, { w: 120 })}
                     alt={t.name}
                     loading="lazy"
                     className="h-12 w-12 rounded-full object-cover"

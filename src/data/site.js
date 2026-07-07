@@ -415,6 +415,14 @@ export const PROJECT_CATEGORIES = [
 export const TESTIMONIALS = [
   {
     quote:
+      'ArkNova brought my dream home to life. From the first drawing to the day I got my keys, the team kept me in the loop and delivered quality I am proud to stand in front of.',
+    name: 'Desmond Akyea',
+    role: 'Homeowner, Palm Heights',
+    rating: 5,
+    photo: 'testimonial-desmond.jpeg',
+  },
+  {
+    quote:
       'ArkNova built our family home in East Legon exactly as promised. The workmanship is excellent and they handed over right on schedule. We felt informed and respected at every stage.',
     name: 'Kwame Mensah',
     role: 'Homeowner, East Legon',
